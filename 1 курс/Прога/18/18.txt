@@ -1,0 +1,30 @@
+  var i,max,n:integer;
+  begin
+    max:=a[lgr];
+    n:=lgr;
+    for i:= lgr + 1 to rgr do
+      if a[i]>max then begin max:=a[i];
+    n:=i
+    end;
+    writeln('macsimalnoe chislo = ',max);
+    writeln('nomer massiva = ',n);
+  end;
+///////////////////////////////////////////////
+  begin
+    //
+    randomize;
+    for i:=1 to 20 do begin
+      a[i]:=random(100);
+      write(a[i]:3);
+    end;
+    //
+    repeat 
+    writeln;
+    write('levaya gran (nomer massiva) = ');
+    readln(lgr);
+    write('pravaya gran (nomer massiva) = ');
+    readln(rgr);
+    writeln('levaya  gran dolzna bit menshe');
+    until lgr<rgr;
+      Max;
+  end.

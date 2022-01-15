@@ -1,0 +1,92 @@
+﻿<Window x:Class="ClientContractWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientContractWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="Client_Grid" AutoGenerateColumns="True">
+
+        </DataGrid>
+        <DataGrid x:Name="Contract_Grid" Grid.Column="1"/>
+        <Button x:Name="Client_Search" Content="Поиск" HorizontalAlignment="Left" Height="50" Margin="471,286,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Click="Client_Search_Click"/>
+        <TextBox x:Name="Client_Org_Search" HorizontalAlignment="Left" Height="21" Margin="115,86,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Background="#FFABADB3" BorderBrush="Black" PreviewKeyDown="Client_Org_Search_PreviewKeyDown" PreviewTextInput="Client_Org_Search_PreviewTextInput"/>
+        <TextBlock x:Name="Client_Org_text" HorizontalAlignment="Left" Height="21" Margin="15,86,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" TextAlignment="Left"><Run Language="ru-ru" Text="Организация"/></TextBlock>
+        <TextBlock x:Name="Client_Address_text" HorizontalAlignment="Left" Height="21" Margin="15,106,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" TextAlignment="Left"><Run Language="ru-ru" Text="Адрес"/></TextBlock>
+        <TextBlock x:Name="Client_Sheff_text" HorizontalAlignment="Left" Height="16" Margin="15,127,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14"><Run Language="ru-ru" Text="Руководитель"/></TextBlock>
+        <TextBlock x:Name="Search_text" HorizontalAlignment="Center" Height="30" Margin="0,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" Text="Поиск" FontFamily="Times New Roman" FontSize="26" RenderTransformOrigin="1.324,0.434"/>
+        <TextBlock x:Name="Contract_Date_text" HorizontalAlignment="Left" Height="16" Margin="15,209,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14"><Run Language="ru-ru" Text="Дата"/></TextBlock>
+        <TextBlock x:Name="Contract_Sum_text" HorizontalAlignment="Left" Height="20" Margin="15,245,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14"><Run Language="ru-ru" Text="Сумма"/></TextBlock>
+        <RadioButton x:Name="Client_Search_radio" Content="Поиск по клиентам" HorizontalAlignment="Left" Height="15" Margin="471,232,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="14" Checked="Client_Search_radio_Checked" GroupName="Search"/>
+        <RadioButton x:Name="Contract_Search_radio" Content="Поиск по контрактам" HorizontalAlignment="Left" Height="15" Margin="471,258,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="14" GroupName="Search" Checked="Contract_Search_radio_Checked"/>
+        <TextBox x:Name="Client_Address_Search" HorizontalAlignment="Left" Height="21" Margin="115,106,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Background="#FFABADB3" BorderBrush="Black" PreviewKeyDown="Client_Address_Search_PreviewKeyDown" PreviewTextInput="Client_Address_Search_PreviewTextInput"/>
+        <TextBox x:Name="Client_Cheff_Search" HorizontalAlignment="Left" Height="21" Margin="115,127,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" BorderBrush="Black" Background="#FFABADB3" PreviewKeyDown="Client_Cheff_Search_PreviewKeyDown" PreviewTextInput="Client_Cheff_Search_PreviewTextInput"/>
+        <TextBox x:Name="Contract_Sum_Search" HorizontalAlignment="Left" Height="21" Margin="62,245,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" BorderBrush="Black" Background="#FFABADB3" PreviewKeyDown="Contract_Sum_Search_PreviewKeyDown" PreviewTextInput="Contract_Sum_Search_PreviewTextInput"/>
+        <TextBlock x:Name="Client_text" HorizontalAlignment="Left" Height="30" Margin="15,51,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="20" RenderTransformOrigin="1.324,0.434"><Run Language="ru-ru" Text="Клиенты"/></TextBlock>
+        <TextBlock x:Name="Contract_text" HorizontalAlignment="Left" Height="30" Margin="15,176,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="20" RenderTransformOrigin="1.324,0.434"><Run Language="ru-ru" Text="Контракты"/></TextBlock>
+        <RadioButton x:Name="Client_Edit_radio" Content="Клинет" HorizontalAlignment="Left" Height="15" Margin="232,289,0,0" Grid.Row="1" VerticalAlignment="Top" Width="92" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" GroupName="Edit" Checked="Client_Edit_radio_Checked"/>
+        <RadioButton x:Name="Contract_Edit_radio" Content="Контракт" HorizontalAlignment="Left" Height="15" Margin="232,314,0,0" Grid.Row="1" VerticalAlignment="Top" Width="92" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" GroupName="Edit" Checked="Contract_Edit_radio_Checked"/>
+        <Button x:Name="DB_Add" Content="Добавить" HorizontalAlignment="Left" Height="44" Margin="329,285,0,0" VerticalAlignment="Top" Width="144" Grid.Column="1" Grid.Row="1" Click="DB_Add_Click"/>
+        <Button x:Name="DB_Edit" Content="Редактировать" HorizontalAlignment="Left" Height="44" Margin="478,285,0,0" VerticalAlignment="Top" Width="143" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="1.477,0.591" Click="DB_Edit_Click"/>
+        <TextBox x:Name="Client_Org_Edit" HorizontalAlignment="Left" Height="21" Margin="138,86,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" Background="#FFABADB3" BorderBrush="Black" PreviewKeyDown="Client_Org_Edit_PreviewKeyDown" PreviewTextInput="Client_Org_Edit_PreviewTextInput"/>
+        <TextBlock x:Name="Client_Org_text_Copy" HorizontalAlignment="Left" Height="21" Margin="38,86,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" TextAlignment="Left" Grid.Column="1"><Run Language="ru-ru" Text="Организация"/></TextBlock>
+        <TextBlock x:Name="Client_Address_text_Copy" HorizontalAlignment="Left" Height="21" Margin="38,106,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" TextAlignment="Left" Grid.Column="1"><Run Language="ru-ru" Text="Адрес"/></TextBlock>
+        <TextBlock x:Name="Client_Sheff_text_Copy" HorizontalAlignment="Left" Height="16" Margin="38,127,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" Grid.Column="1"><Run Language="ru-ru" Text="Руководитель"/></TextBlock>
+        <TextBox x:Name="Client_Address_Edit" HorizontalAlignment="Left" Height="21" Margin="138,106,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" BorderBrush="Black" Background="#FFABADB3" PreviewKeyDown="Client_Address_Edit_PreviewKeyDown" PreviewTextInput="Client_Address_Edit_PreviewTextInput"/>
+        <TextBox x:Name="Client_Cheff_Edit" HorizontalAlignment="Left" Height="21" Margin="138,127,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" Background="#FFABADB3" BorderBrush="Black" PreviewKeyDown="Client_Cheff_Edit_PreviewKeyDown" PreviewTextInput="Client_Cheff_Edit_PreviewTextInput"/>
+        <TextBlock x:Name="Client_text_Copy" HorizontalAlignment="Left" Height="30" Margin="38,51,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="20" RenderTransformOrigin="1.324,0.434" Grid.Column="1"><Run Language="ru-ru" Text="Клиенты"/></TextBlock>
+        <TextBlock x:Name="Contract_Date_text_Copy" HorizontalAlignment="Left" Height="16" Margin="38,209,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" Grid.Column="1"><Run Language="ru-ru" Text="Дата"/></TextBlock>
+        <TextBlock x:Name="Contract_Sum_text_Copy" HorizontalAlignment="Left" Height="20" Margin="38,240,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Times New Roman" FontSize="14" Grid.Column="1"><Run Language="ru-ru" Text="Сумма"/></TextBlock>
+        <TextBox x:Name="Contract_Sum_Edit" HorizontalAlignment="Left" Height="21" Margin="86,240,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" Background="#FFABADB3" BorderBrush="Black" PreviewKeyDown="Contract_Sum_Edit_PreviewKeyDown" PreviewTextInput="Contract_Sum_Edit_PreviewTextInput"/>
+        <TextBlock x:Name="Contract_text_Copy" HorizontalAlignment="Left" Height="30" Margin="38,176,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="20" RenderTransformOrigin="1.324,0.434" Grid.Column="1"><Run Language="ru-ru" Text="Контракты"/></TextBlock>
+        <TextBlock x:Name="Edit_text" HorizontalAlignment="Center" Height="30" Margin="0,16,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontFamily="Times New Roman" FontSize="26" RenderTransformOrigin="1.324,0.434" Grid.Column="1"><Run Language="ru-ru" Text="Редактирование"/></TextBlock>
+        <ComboBox x:Name="Contract_Hour_Search" HorizontalAlignment="Left" Height="25" Margin="320,209,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFABADB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <ComboBox x:Name="Contract_Minute_Search" HorizontalAlignment="Left" Height="25" Margin="385,209,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFABADB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <TextBlock x:Name="Contract_Hour_text" HorizontalAlignment="Left" Height="16" Margin="320,188,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" TextAlignment="Center"><Run Language="tt-ru" Text="Час"/></TextBlock>
+        <TextBlock x:Name="Contract_Minute_text" HorizontalAlignment="Left" Height="16" Margin="385,188,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" TextAlignment="Center"><Run Language="tt-ru" Text="Минута"/></TextBlock>
+        <ComboBox x:Name="Contract_Hour_Edit" HorizontalAlignment="Left" Height="25" Margin="345,209,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFABADB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <ComboBox x:Name="Contract_Minute_Edit" HorizontalAlignment="Left" Height="25" Margin="410,209,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" Grid.Column="1" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFABADB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <TextBlock x:Name="Contract_Hour_text_Copy" HorizontalAlignment="Left" Height="16" Margin="345,188,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" TextAlignment="Center" Grid.Column="1"><Run Language="tt-ru" Text="Час"/></TextBlock>
+        <TextBlock x:Name="Contract_Minute_text_Copy" HorizontalAlignment="Left" Height="16" Margin="410,188,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" FontFamily="Times New Roman" FontSize="14" TextAlignment="Center" Grid.Column="1"><Run Language="tt-ru" Text="Минута"/></TextBlock>
+        <DatePicker x:Name="Contract_Date_Search" HorizontalAlignment="Left" Height="30" Margin="62,204,0,0" Grid.Row="1" VerticalAlignment="Top" Width="242"/>
+        <DatePicker x:Name="Contract_Date_Edit" HorizontalAlignment="Left" Height="30" Margin="86,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="242" Grid.Column="1"/>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+program program1;
+
+var
+
+   x:integer;
+
+begin
+
+  write ('Vvedite x:');
+
+  readln (x);
+
+  if x mod 4 = 0 then 
+writeln('x kraten 4')
+
+else
+
+writeln('x nekraten 4');
+
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

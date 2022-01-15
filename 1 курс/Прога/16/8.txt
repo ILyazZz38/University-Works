@@ -1,0 +1,188 @@
+program project6;
+
+type
+  Stud = record
+    Number:byte;
+    Family:String[25];
+    Marks:array[1..7] of byte;
+  end;
+  
+  Group = record
+    Num:byte;
+    Fam:String[25];
+    Mark:array[1..7] of byte;
+  end;
+  
+var i,j,n,y:integer;
+  f1,f2,f3: text;
+  family:string[25];
+  name,name2,name3:string;
+  sred,sred2:real;
+  x:string;
+  s:array[1..10] of Stud;
+  g:array[1..10] of Group;
+begin
+  repeat
+  writeln('Menu');
+  writeln();
+  writeln('1. Vvod informacii o studentah 1 gruppi');
+  writeln('2. Vvod informacii o studentah 2 gruppi');
+  writeln('3. Sohranit v faile 1 gruppu');
+  writeln('4. Sohranit v faile 2 gruppu');
+  writeln('5. prochitat iz faila potoc');
+  writeln('6. Exit');
+  writeln();
+  sred:=0;
+  write('Deistvye: ');
+  readln(y);
+  writeln();
+  writeln();
+  case y of
+  1: begin
+  write('skolko studentov v 1 gruppe?: ');
+  readln(n);
+  writeln();
+    for i:=1 to n do begin
+    write('Vvedite familiu ', i, ' studenta: ');
+    readln(s[i].Family);
+    write('vvedite nomer ', i, ' studenta: ');
+    readln(s[i].Number);
+    for j:= 1 to 7 do begin
+      write('vvedite ocencu za ', j, ' predmet: ');
+      readln(s[i].Marks[j]);
+    end;
+    writeln();
+  end;
+  writeln();
+  writeln();
+  end;
+  
+  2: begin
+  write('skolko studentov v 2 gruppe?: ');
+  readln(n);
+  writeln();
+    for i:=1 to n do begin
+    write('Vvedite familiu ', i, ' studenta: ');
+    readln(g[i].Fam);
+    write('vvedite nomer ', i, ' studenta: ');
+    readln(g[i].Num);
+    for j:= 1 to 7 do begin
+      write('vvedite ocencu za ', j, ' predmet: ');
+      readln(g[i].Mark[j]);
+    end;
+    writeln();
+  end;
+  writeln();
+  writeln();
+  end;
+
+  3:begin
+  writeln;
+  writeln();
+      write('Vvedite imya faila: ');
+      readln(name);
+      assign(f1, name);
+      rewrite(f1);
+      for i:= 1 to n do      begin
+      writeln(f1, s[i].Family);
+       writeln(f1, s[i].Number);
+      for j:=1 to 7 do
+      writeln(f1, s[i].Marks[j]);
+      writeln(x);
+      end;
+      close(f1);
+      writeln('sozdan fail:', name);
+      writeln('fail sohranen');
+  writeln;
+  end;
+  
+  4:begin
+  writeln;
+  writeln();
+      write('Vvedite imya faila: ');
+      readln(name2);
+      assign(f2, name2);
+      rewrite(f2);
+      for i:= 1 to n do      begin
+      writeln(f2, g[i].Fam);
+       writeln(f2, g[i].Num);
+      for j:=1 to 7 do
+      writeln(f2, g[i].Mark[j]);
+      writeln(x);
+      end;
+      close(f2);
+      writeln('sozdan fail:', name2);
+      writeln('fail sohranen');
+  writeln;
+  end;
+  
+  5:begin
+   writeln;
+   write('Nazvanie faila potoca?: ');
+      readln(name3);
+      reset(f1);
+      reset(f2);
+      assign(f3, name3);
+      rewrite(f3);
+      while not EOF(f1) do
+       begin
+        readln(f1, s[i].Family);
+        writeln(f3, s[i].Family);
+      readln(f1, s[i].Number);
+      writeln(f3, s[i].Number);
+      for j:=1 to 7 do
+      begin
+      readln(f1, s[i].Marks[j]);
+      writeln(f3, s[i].Marks[j]);
+      end;
+       end;
+       while not EOF(f2) do
+       begin
+        readln(f2, g[i].Fam);
+        writeln(f3, g[i].Fam);
+      readln(f2, g[i].Num);
+      writeln(f3, g[i].Num);
+      for j:=1 to 7 do
+      begin
+      readln(f2, g[i].Mark[j]);
+      writeln(f3, g[i].Mark[j]);
+      end; 
+       end;
+      close(f1);
+      close(f2);
+      close(f3);
+      reset(f3);
+      while not EOF(f3) do
+      begin
+        readln(f3, s[i].Family);
+        writeln('familiya ', i,' studenta 1 gruppi:', s[i].Family);
+      readln(f3, s[i].Number);
+      writeln('nomer ', i,' studenta 1 gruppi:', s[i].Number);
+      for j:=1 to 7 do
+      begin
+      readln(f3, s[i].Marks[j]);
+      writeln('ocenka za ',j, 'predmet ', i,' studenta 1 gruppi:', s[i].Marks[j]);
+      end;
+      
+      readln(f3, g[i].Fam);
+        writeln('familiya ', i,' studenta 2 gruppi:', g[i].Fam);
+      readln(f3, g[i].Num);
+      writeln('nomer ', i,' studenta 2 gruppi:', g[i].Num);
+      for j:=1 to 7 do
+      begin
+      readln(f3, g[i].Mark[j]);
+      writeln('ocenka za ',j, 'predmet ', i,' studenta 2 gruppi:', g[i].Mark[j]);
+      end;
+      
+       end;
+      writeln;
+  end;
+  
+  else  begin
+    writeln;
+    writeln('Vvedite chislo iz menu');
+    writeln;
+  end;
+  end;
+  until y = 6;
+end.           

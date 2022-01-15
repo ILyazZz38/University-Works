@@ -1,0 +1,34 @@
+program program3;
+
+var
+
+  sym:char;
+
+  a,b,c:integer;
+
+begin
+
+  write('Vvedite symvol: ');
+
+  readln(sym);
+
+  write('Kol-vo strok: ');
+
+  readln(a);
+
+  b:=1;
+
+  repeat
+
+    for c:=1 to b do write(sym,' ');
+
+    writeln;
+
+    b:=b+1;
+
+  until b=a+1;
+
+  write('nazhmy ENTER');
+
+  readln();
+end.

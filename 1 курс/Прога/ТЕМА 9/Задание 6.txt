@@ -1,0 +1,25 @@
+program program6;
+
+var
+ x,y:integer;
+ 
+begin
+ 
+ x:=-5;
+ 
+ while x<=5 do 
+ begin
+ 
+ y:=5*x*x-2*x+1;
+ 
+ writeln('x=',x:2,' y=',y:2);
+ 
+ x:=x+2;
+ 
+ end;
+ 
+write('nazhmy ENTER');
+
+readln();
+
+end.

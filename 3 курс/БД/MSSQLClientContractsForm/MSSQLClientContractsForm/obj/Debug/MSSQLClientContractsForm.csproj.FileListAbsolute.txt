@@ -1,0 +1,11 @@
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\bin\Debug\MSSQLClientContractsForm.exe.config
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\bin\Debug\MSSQLClientContractsForm.exe
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\bin\Debug\MSSQLClientContractsForm.pdb
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.csproj.AssemblyReference.cache
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.Form1.resources
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.Properties.Resources.resources
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.csproj.GenerateResource.cache
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.csproj.CoreCompileInputs.cache
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.exe
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.pdb
+F:\ВУЗ\3 курс\БД\MSSQLClientContractsForm\MSSQLClientContractsForm\obj\Debug\MSSQLClientContractsForm.csproj.SuggestedBindingRedirects.cache

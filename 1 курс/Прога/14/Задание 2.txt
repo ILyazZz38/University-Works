@@ -1,0 +1,51 @@
+program project2;
+type
+
+  Date = record
+    year:integer;
+    month:byte;
+    day:byte;
+ end;
+    book = record
+    Name:String[25];
+    Autor:String[25];
+    kolvo:integer;
+    date:Date;
+  end;
+
+
+var i,n,y:integer;
+  b:array[1..101] of book;
+begin
+  repeat
+  n:=2;
+  for i:= 1 to n do begin
+    write('Vvedite nazvanie ', i, ' knigi: ');
+    readln(b[i].Name);
+    write('vvedite kol-vo ekzeplyarov ', i, ' knigi: ');
+    readln(b[i].kolvo);
+    write('vvedite avotora ', i, ' knigi: ');
+    readln(b[i].Autor);
+    write('vvedite god izdaniya ', i, ' knigi: ');
+    readln(b[i].date.year);
+    write('vvedite mesyac izdaniya ', i, ' knigi: ');
+    readln(b[i].date.month);
+    write('vvedite den izdaniya ', i, ' knigi: ');
+    readln(b[i].date.day);
+    writeln();
+  end;
+  for i:=1 to n do begin
+    writeln();
+    writeln('kniga ', i);
+    writeln();
+    writeln('nazvaniye: ', b[i].Name);
+    writeln('avtor: ', b[i].Autor);
+    writeln('kol-vo ekazemplyarov: ', b[i].kolvo);
+    writeln('data izdaniya: ', b[i].date.day, '.', b[i].date.month, '.', b[i].date.year);
+    writeln();
+  end;
+  write('povtorit programmu? (1/0)    ');
+  readln(y);
+  until y = 0;
+end.           
+             

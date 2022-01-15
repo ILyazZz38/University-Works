@@ -1,0 +1,142 @@
+program project1;
+const
+  n = 20;
+type
+  T_worker = record
+    id: integer;
+    fam: string[30];
+    payment: real;
+    hours: real;
+  end;
+var
+  mas_worker: array [1..n] of T_worker;
+  ans: byte;
+  sch: integer;
+  file_sch: file of integer;
+
+procedure add_worker(sch: integer);// полпрограмм ввода нового пользователя с проверкой свободного места в массиве (возможно ли изменять глобальные переменные в подпрограмме?)
+begin
+writeln;
+  if sch > n then // контроль количества записей
+    writeln('No free space')
+  else
+    begin
+      write('Enter new worker ID: ');
+        readln(mas_worker[sch].id);
+      write('Enter new worker Fam: ');
+        readln(mas_worker[sch].fam);
+      write('Enter new worker Payment: ');
+        readln(mas_worker[sch].payment);
+      write('Enter new worker Hours: ');
+        readln(mas_worker[sch].hours);
+    end;
+writeln;
+end;
+
+procedure count_payment(sch: integer); // подсчет зарплаты работников
+var
+  i: integer;
+begin
+writeln;
+  for i:= 1 to sch do
+    begin
+      write(mas_worker[i].fam,': ');
+      writeln((mas_worker[i].payment * mas_worker[sch].hours):8:2);
+    end;
+writeln;
+end;
+
+procedure search_worker(sch: integer); // поиск работника по фамилии
+var
+  name: string;
+  i: integer;
+  prov: byte;
+begin
+prov:= 0;
+writeln;
+  write('Enter fam: ');
+    readln(name);
+  for i:= 1 to sch do
+    begin
+      if name = mas_worker[i].fam then
+        begin
+          writeln(mas_worker[i].id);
+          writeln(mas_worker[i].fam);
+          writeln(mas_worker[i].payment:8:2);
+          writeln(mas_worker[i].hours:5:2);
+          prov:= 1;
+        end;
+    end;
+  if prov = 0 then
+    writeln('Not found');
+writeln;
+end;
+
+procedure save_in_file(sch: integer); // запись в типизированный файл
+var
+  file_workers: file of T_worker;
+  i: integer;
+begin
+writeln();
+  assign(file_workers,'file_workers.txt');
+    rewrite(file_workers);
+  for i:= 1 to sch do  // цикл с известным числом повторов для уменьшения размера создаваемого файла (и немного из-за лени, в основном из-за лени)
+    write(file_workers, mas_worker[i]);
+  close(file_workers);
+writeln('Done');
+writeln();
+end;
+
+procedure load_from_file(sch: integer); // запись из типизированного файла
+var
+  file_workers: file of T_worker;
+  i: integer;
+begin
+writeln();
+  assign(file_workers,'file_workers.txt');
+    reset(file_workers);
+  for i:= 1 to sch do
+    read(file_workers, mas_worker[i]);
+  close(file_workers);
+writeln('Done');
+writeln();
+end;
+
+begin
+  sch:= 0; // счетчик последней записи в массиве работников
+// ------------------- Меню начало ------------------- //
+repeat
+  writeln('1. New worker');
+  writeln('2. Workers payment');
+  writeln('3. Search');
+  writeln('4. Save in file');
+  writeln('5. Load from file');
+  writeln('6. Exit');
+// ------------------- Меню конец ------------------- //
+    write('Enter: ');
+    readln(ans);
+      case ans of
+        1:begin  
+            sch:= sch + 1;
+            add_worker(sch);
+          end;
+        2:count_payment(sch);
+        3:search_worker(sch);
+        4:begin
+            assign(file_sch,'file_sch.txt');// запись счетчика в файл
+              rewrite(file_sch);
+              write(file_sch, sch);
+              close(file_sch);
+            save_in_file(sch);
+          end;
+        5:begin
+            assign(file_sch,'file_sch.txt');// вывод счетчика из файла
+              reset(file_sch);
+              read(file_sch, sch);
+              close(file_sch);
+            load_from_file(sch);
+          end;
+      end;
+until ans = 6;
+end.
+

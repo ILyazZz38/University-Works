@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSQLClientContract", "MSSQLClientContract\MSSQLClientContract.csproj", "{7B937EA4-A82B-4151-BB48-B90F6F11F4E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B937EA4-A82B-4151-BB48-B90F6F11F4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B937EA4-A82B-4151-BB48-B90F6F11F4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B937EA4-A82B-4151-BB48-B90F6F11F4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B937EA4-A82B-4151-BB48-B90F6F11F4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F40987D6-3722-4CE3-800E-CE21C8C0F78B}
+	EndGlobalSection
+EndGlobal

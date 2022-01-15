@@ -1,0 +1,18 @@
+program program1;
+
+var i:integer;
+
+begin
+
+for i:=0 to 130 do write(i,' ');
+
+writeln;
+
+for i:=130 downto 0 do write(i,' ');
+
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

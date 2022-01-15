@@ -1,0 +1,19 @@
+program project1;
+
+var
+  n, fact:integer;//переменная числа и факториала
+///////////////////////////////////////////////
+  function faktorial(n:integer):integer;//фунеция факториала типа инт(с переменной н инт)
+   begin
+    if n=0 then faktorial:=1//при числе равном 0, факториал равен 1
+   else
+    faktorial:=n*faktorial(n-1);//вычисление факториала
+   end;
+///////////////////////////////////////////////
+  begin
+    write('u kakogo chisla nuzhno naiti factorial = ');//запрос и дальнейший ввод числа
+    readln(n);
+    fact:=faktorial(n);//приравниваем переменную факториала к функции с вводным числом
+    writeln('factorial = ', fact);
+//вывод факториала
+  end.

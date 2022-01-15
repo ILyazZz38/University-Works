@@ -1,0 +1,24 @@
+program program2;
+
+var i:integer;
+
+stroka :string;
+
+begin
+
+writeln('Vvedite tekst');
+
+readln(stroka);
+
+writeln('skolko raz napisat tekst?');
+
+readln(i);
+
+for i:=0 to i do writeln(stroka);
+
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

@@ -1,0 +1,48 @@
+//от 1 задания формироваие файла с 100 целыми числами(от -100 до 100)
+//от 2 задания чтение с файла с целыми числами
+//от 3 задания объединение первых двух заданий с возможность многократного выбора пользователем
+//+ от 3 задания меню через case
+program project1;
+
+var
+  i, y, x: integer;
+  f: file of integer;//файл типа интеджер
+
+begin
+  repeat
+    writeln('MENU');
+    writeln();
+    writeln('1. Sozdat fail');
+    writeln('2.chtenie faila');
+    writeln('3.zavershit rabotu');
+    writeln();
+    write('deistvie: ');
+    readln(y);
+    case y of
+     1: begin
+      randomize;
+      writeln();
+      assign(f, 'data.int');//связывание файловой переменной с файлом в текущем каталоге
+      rewrite(f);//открытие файла для редактирования
+      for i := 1 to 100 do//цикл, дающий x знач от -100 до 100
+       begin
+        x:= random(200) - 100;
+        write(f, x);//записываем x в файл
+       end;
+      close(f);//закрытие файла
+      writeln('chisla zapisani v fail');
+      writeln();
+     end;
+     2: begin
+      reset(f);//открытие файла для чтения
+      while not EOF(f) do//пока не достигнут конец файла, делай
+       begin
+        read(f,x);//достаем х из файла
+        writeln(x);//выводим х
+       end;
+      close(f);//хакрываем файл
+      writeln;
+     end;
+    end;
+  until y = 3;
+end.                                                          

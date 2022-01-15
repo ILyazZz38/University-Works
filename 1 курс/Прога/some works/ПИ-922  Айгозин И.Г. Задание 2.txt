@@ -1,0 +1,78 @@
+Задача:
+Сгенерировать и вывести на экран массив 200 целых чисел в диапазоне от -150 до 150.
+Найти в данном массиве:
+1 - Сумму чисел, стоящих между минимальным и максимальным числом
+2 - Произведение всех элементов, кратных 3
+
+Решение:
+program project2;
+
+var a:array[1..200] of integer;
+  i,n,y,sum,pr,max,min,r,g:integer;
+begin
+  randomize;
+  sum:=0;
+  pr:=0;
+  max:=0;
+  min:=150;
+  y:=0;
+  repeat
+    writeln('MENU');
+    writeln();
+    writeln('1. Generacia massiva iz 200 chisel');
+    writeln('2. summa chisel mezhdu max i min znacheniem');
+    writeln('3. proizvedenie vseh elementov kratnim 3');
+    writeln('4. Exit');
+    writeln();
+    write('Vipolnit: ');
+    readln (n);
+    case n of
+     1:begin
+      for i:=1 to 200 do
+      begin
+       a[i]:=random(301)-150;
+       write(a[i], '   ');
+      end;
+     writeln();
+     writeln();
+     end;
+     2:begin
+      sum:=0;
+      r:=0;
+      g:=0;
+      max:=0;
+      min:=150;
+       for i:=1 to 200 do
+       begin
+        if a[i] > max then begin
+          max:=a[i];
+          r:=i;
+        end;
+       end;
+       for i:=1 to 200 do
+       begin
+        if a[i] < min then begin
+          min:=a[i];
+          g:=i;
+        end;
+       end;
+      if r < g then
+       for i:=r+1 to g-1 do sum:=sum+a[i]
+      else
+       for i:=g+1 to r-1 do sum:=sum+a[i];
+      writeln(sum);
+      writeln();
+     end;
+    3:begin
+     for i:=1 to 200 do
+     begin
+      if a[i] mod 3 = 0 then pr:=pr+a[i]
+     end;
+     writeln(pr);
+     pr:=0;
+     writeln();
+    end;
+    4:y:=1;
+    end;
+  until y = 1;
+end.

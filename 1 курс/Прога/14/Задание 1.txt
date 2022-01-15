@@ -1,0 +1,48 @@
+program project1;
+type
+  Sotr = record
+    Family:String[25];
+    oklad:integer;
+    dolzhnost:string[30];
+  end;
+  Date = record
+    year:integer;
+    month:byte;
+    day:byte;
+  end;
+var i,n,y:integer;
+  s:array[1..101] of Sotr;
+  d:array[1..101] of Date;
+begin
+  repeat
+  n:=101;
+  for i:= 1 to n do begin
+    write('Vvedite familiu ', i, ' sotrudnika: ');
+    readln(s[i].Family);
+    write('vvedite oklad ', i, ' sotrudnika: ');
+    readln(s[i].oklad);
+    write('vvedite dolzhnost ', i, ' sotrudnika: ');
+    readln(s[i].dolzhnost);
+    write('vvedite god postuplenya ', i, ' sotrudnika: ');
+    readln(d[i].year);
+    write('vvedite mesyac postuplenya ', i, ' sotrudnika: ');
+    readln(d[i].month);
+    write('vvedite den postuplenya ', i, ' sotrudnika: ');
+    readln(d[i].day);
+    writeln();
+  end;
+  for i:=1 to n do begin
+    writeln();
+    writeln('sotrudnic ', i);
+    writeln();
+    writeln('familya: ', s[i].Family);
+    writeln('dolzhnost: ', s[i].dolzhnost);
+    writeln('oklad: ', s[i].oklad);
+    writeln('data postuplenya: ', d[i].day, '.', d[i].month, '.', d[i].year);
+    writeln();
+  end;
+  write('povtorit programmu? (1/0)    ');
+  readln(y);
+  until y = 0;
+end.
+                                           

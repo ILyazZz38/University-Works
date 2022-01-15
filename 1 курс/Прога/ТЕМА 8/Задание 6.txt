@@ -1,0 +1,26 @@
+program program2;
+
+var
+
+   a,b:integer;
+
+begin
+
+  write ('Vvedite a:');
+
+  readln (a);
+
+  write ('Vvedite b:');
+
+  readln (b);
+
+  a:= a mod b;
+ 
+writeln('ostatok =', a);
+
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

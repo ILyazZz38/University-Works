@@ -1,0 +1,33 @@
+program program1;
+
+var
+
+i:integer;
+
+c:string;
+
+begin
+
+repeat
+
+i:=0;
+
+write('Vvedite tekst:');
+
+readln(c);
+
+write('Skolko raz povtorit:');
+
+readln(i);
+
+ for i:=0 to i-1 do
+
+ writeln(c);
+
+ until i=0;
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

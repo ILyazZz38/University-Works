@@ -1,0 +1,49 @@
+program project3;
+type
+  Stud = record
+    Number:byte;
+    Family:String[25];
+    Marks:array[1..7] of byte;
+  end;
+var i,j,n,y:integer;
+  sred:real;
+  s:array[1..10] of Stud;
+begin
+  repeat
+  sred:=0;
+  write('skolko studentov v gruppe?: ');
+  readln(n);
+  writeln();
+    for i:=1 to n do begin
+    write('Vvedite familiu ', i, ' studenta: ');
+    readln(s[i].Family);
+    write('vvedite nomer ', i, ' studenta: ');
+    readln(s[i].Number);
+    for j:= 1 to 7 do begin
+      write('vvedite ocencu za ', j, ' predmet: ');
+      readln(s[i].Marks[j]);
+    end;
+    writeln();
+  end;
+   for i:=1 to n do begin
+    writeln();
+    writeln('Student ', i);
+    writeln();
+    writeln('familya: ', s[i].Family);
+    writeln('nomer studenta: ', s[i].Number);
+    for j:=1 to 7 do begin
+    write('ocenka studenta za: ',j, ' predmet: ');
+    writeln(s[i].Marks[j]);
+    if s[i].Marks[j] <> 0 then begin
+    sred:=sred+s[i].Marks[j];
+    end;
+    end;
+    sred:= sred/7;
+    writeln('sred ball: ', sred:1:2);
+    writeln();
+  end;
+  write('povtorit programmu? (1/0)    ');
+  readln(y);
+  until y = 0;
+end.
+          

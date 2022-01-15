@@ -1,0 +1,42 @@
+program program2;
+
+var
+ 
+
+i,y,c:integer;
+ 
+begin
+ 
+repeat
+
+i:=0;
+
+y:=0;
+
+write('Ot kakogo chisla:');
+
+readln(i);
+
+write('Do kakogo:');
+
+readln(y);
+
+c:=y-i;
+
+ while i<=y do
+
+ begin
+
+ writeln(i);
+
+ i:=i+1;
+
+ end;
+
+ until c=0;
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

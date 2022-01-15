@@ -1,0 +1,37 @@
+program project2;
+
+type
+mas=array[1..100] of integer;
+var
+a:array[1..100] of integer;
+max,maxi,i:integer;
+procedure vvod(var d:mas);
+begin
+for i:= 1 to 10 do
+d[i]:=random(50);
+for i:= 1 to 10 do
+write(a[i]:4);
+end;
+procedure max_elem(e:mas; t:byte);
+begin
+max:=e[1];
+maxi:=1;
+for i:= 1 to 10 do
+begin
+if e[i]>max then
+begin
+max:=e[i];
+maxi:=i;
+end;
+end;
+writeln('Max element v massive:', max,'. Ego index:',maxi);
+end;
+begin
+randomize;
+vvod(a);
+writeln;
+writeln;
+max_elem(a,1);
+writeln;
+readln();
+end.                               

@@ -1,0 +1,24 @@
+var
+  fint : file of integer;
+  x : integer;
+  txt : text;
+  t : string;
+begin
+  assign(fint, 'file.int');
+  rewrite(fint);
+  write(fint, 220);
+  reset(fint);
+  read(fint, x);
+  writeln('in file "', 'file.int', '" x=: ', x);
+  close(fint);
+
+  assign(txt, 'file.txt');
+  rewrite(txt);
+  write(txt, 'Tisbi');
+  close(txt);
+  reset(txt);
+  read(txt, t);
+  writeln('in file "', 'file.txt', '" t=: ' , t);
+  close(txt);
+end.
+     

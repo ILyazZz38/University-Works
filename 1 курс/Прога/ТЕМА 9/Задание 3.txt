@@ -1,0 +1,17 @@
+program program3;
+
+var i:integer;
+
+ begin
+ 
+ for i:=10 to 99 do 
+if i mod 2 = 0 then
+ 
+writeln (i);
+ 
+
+write('nazhmy ENTER');
+
+readln();
+
+end.

@@ -1,0 +1,114 @@
+program project4;
+
+var
+  i, y, x: integer;
+  f, f1, f2: file of integer;//файл типа интеджер
+  name, name2, name3:string;
+
+begin
+  repeat
+    writeln('MENU');
+    writeln();
+    writeln('1. Sozdat fail 1');
+    writeln('1. Sozdat fail 2');
+    writeln('3. Sozdat fail 3 i perenesti na nego informaciu s faila 1 i 2');
+    writeln('4. prochitat 1 fail');
+    writeln('5. prochitat 2 fail');
+    writeln('6. prochitat 3 fail');
+    writeln('7.zavershit rabotu');
+    writeln();
+    write('deistvie: ');
+    readln(y);
+    case y of
+     1: begin
+      randomize;
+      writeln();
+      write('Vvedite imya faila: ');
+      readln(name);
+      assign(f, name);//связывание файловой переменной с файлом в текущем каталоге
+      rewrite(f);//открытие файла для редактирования
+      for i := 1 to 5 do//цикл, дающий x знач от -10 до 10
+       begin
+        x:= random(20) - 10;
+        write(f, x);//записываем x в файл
+       end;
+      close(f);//закрытие файла
+      writeln('chisla zapisani v fail');
+      writeln();
+     end;
+     2: begin
+      randomize;
+      writeln();
+      write('Vvedite imya 2 faila: ');
+      readln(name2);
+      assign(f1, name2);//связывание файловой переменной с файлом в текущем каталоге
+      rewrite(f1);//открытие файла для редактирования
+      for i := 1 to 5 do//цикл, дающий x знач от -10 до 10
+       begin
+        x:= random(20) - 10;
+        write(f1, x);//записываем x в файл
+       end;
+      close(f1);//закрытие файла
+      writeln('chisla zapisani v fail');
+      writeln();
+     end;
+     3: begin
+      writeln;
+      write('vvedite imya 3 faila:');
+      readln(name3);
+      reset(f);//открытие файла для чтения
+      reset(f1);
+      assign(f2, name3);
+      rewrite(f2);
+      while not EOF(f) do//пока не достигнут конец файла, делай
+       begin
+        read(f,x);//достаем х из файла
+        write(f2, x);//выводим х
+       end;
+      while not EOF(f1) do//пока не достигнут конец файла, делай
+       begin
+        read(f1,x);//достаем x из файла
+        write(f2, x);//выводим x
+       end;
+      close(f);//хакрываем файл
+      close(f1);
+      close(f2);
+      writeln('chisla skopirovany');
+      writeln;
+     end;
+     4: begin
+      writeln;
+      reset(f);
+      while not EOF(f) do
+       begin
+        read(f, x);
+        writeln(x);
+       end;
+      close(f);
+      writeln;
+      end;
+     5:begin
+      writeln;
+      reset(f1);
+      while not EOF(f1) do
+       begin
+        read(f1, x);
+        writeln(x);
+       end;
+      close(f1);
+      writeln;
+      end;
+     6:begin
+      writeln;
+      reset(f2);
+      while not EOF(f2) do
+       begin
+        read(f2, x);
+        writeln(x);
+       end;
+      close(f2);
+      writeln;
+      end;
+    end;
+  until y = 7;
+end.                          

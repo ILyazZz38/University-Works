@@ -1,0 +1,35 @@
+program program5;
+
+Var
+
+d: integer;
+
+begin
+
+ write ('Vveditye den nedeli');
+
+ readln(d);
+
+ case d of
+
+ 1: writeln('Ponedelnik');
+
+ 2: writeln('Vtornik');
+
+ 3: writeln('Sreda');
+
+ 4: writeln('Chetverg');
+
+ 5: writeln('Pyatnica');
+
+ 6: writeln('Subbota');
+
+ 7: writeln('Voskresenye');
+
+ else writeln('Takogo dnya net!')
+
+ write('nazhmy ENTER');
+ readln();
+
+
+ end;

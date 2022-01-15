@@ -1,0 +1,27 @@
+program program5;
+
+
+var
+
+i,y:integer;
+
+begin
+
+y:=1;
+
+for i:=1 to 15 do
+ begin
+
+if (i mod 2)=0 then
+
+y:=y*i;
+
+end;
+
+writeln('Proizvedenie =',y);
+
+write('nazhmy ENTER');
+
+readln();
+
+end. 
